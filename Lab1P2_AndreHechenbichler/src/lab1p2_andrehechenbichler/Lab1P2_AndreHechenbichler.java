@@ -5,6 +5,7 @@
 package lab1p2_andrehechenbichler;
 import java.util.Random;
 import java.util.Scanner;
+//fila 2 columna 8
 /**
  *
  * @author andre
@@ -23,7 +24,7 @@ static Random rand=new Random();
         imp(mat);
         System.out.println("");
         System.out.println("Matriz Ordenada:");
-        mat=organizar(mat);
+        mat=prueba(mat);
         imp(mat);
     }
     public static int[]mediano(int[][]mat){//scar el medio
@@ -31,13 +32,34 @@ static Random rand=new Random();
     return null;
         
     }//fin mediano
+    public static int[][] prueba(int[][]mat){
+        int[][]mat2=mat;
+        imp(mat2);
+        System.out.println("aaaa");
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[0].length; j++) {
+                if(j<mat.length-1){
+                    if (mat[i][j]<mat[i][j+1]) {
+                        mat[i][j+1]=mat2[i][j];
+                        mat[i][j]=mat2[i][j+1];
+                    }
+                }
+        }
+        }
+        System.out.println("");
+        imp(mat2);
+        System.out.println("");
+        return mat;
+    }
     public static int[][] organizar(int[][]mat){//organizar matriz
         int[][]mat2=mat;
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat[0].length; j++) {
                 if (mat[i][j]<mat[i][j+1]) {
-                    mat[i][j]=mat2[i][j+1];
                     mat[i][j+1]=mat2[i][j];
+                    mat[i][j]=mat2[i][j+1];
+                    System.out.println(mat2[i][j]);
+                    System.out.println(mat2[i][j+1]);
                     return mat;
                 }else{
                     return mat;
