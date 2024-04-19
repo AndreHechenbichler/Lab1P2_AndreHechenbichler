@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Lab1P2_AndreHechenbichler {
 static Scanner leer=new Scanner(System.in);
 static Random rand=new Random();
+static int[][] mat2=new int[0][0];
     /**
      * @param args the command line arguments
      */
@@ -24,9 +25,12 @@ static Random rand=new Random();
         int[][]mat=llenar(tam);//llamar y imprimir matriz
         imp(mat);
         System.out.println("");
+        mat2=mat;
         System.out.println("Matriz Ordenada:");
-        int cont=0;
+        for (int i = 0; i < 2; i++) {
+            int cont=0;
         mat=bubble(mat,cont);
+        }
         imp(mat);
         
         System.out.println("calcular medianas");
@@ -36,13 +40,24 @@ static Random rand=new Random();
             System.out.print("["+lista.get(i)+"]");
         }
         System.out.println("");
+        
     }
     public static int[][]bubble(int[][]mat,int cont){
         for (int i = 0; i < mat.length; i++) {
             if (i==3&&cont<mat.length-1) {
                 return bubble(mat, cont+1);
             }else{
-                mat[cont][i]=3;
+                if(i<=mat.length-2){
+                    int num1=mat2[cont][i+1];
+                    int num2=mat2[cont][i];
+                    if(mat[cont][i]>mat[cont][i+1]){
+                        mat[cont][i]=num1;
+                        mat[cont][i+1]=num2;
+                    }
+                }
+                
+                
+                
             }
         }
     return mat;  
