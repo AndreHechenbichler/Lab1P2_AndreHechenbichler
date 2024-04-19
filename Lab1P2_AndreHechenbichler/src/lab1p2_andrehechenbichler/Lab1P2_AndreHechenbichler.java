@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package lab1p2_andrehechenbichler;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 //fila 2 columna 8
@@ -24,50 +25,30 @@ static Random rand=new Random();
         imp(mat);
         System.out.println("");
         System.out.println("Matriz Ordenada:");
-        mat=prueba(mat);
-        imp(mat);
+        //mat=prueba(mat);
+        //imp(mat);
+        System.out.println("calcular medianas");
+        ArrayList<Integer>lista=new ArrayList();
+        mediano(mat,lista);
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.print("["+lista.get(i)+"]");
+        }
+        System.out.println("");
     }
-    public static int[]mediano(int[][]mat){//scar el medio
-        int[]medianos=new int[mat.length];
-    return null;
+    public static int[][]bubble(int[][]mat){
         
-    }//fin mediano
-    public static int[][] prueba(int[][]mat){
-        int[][]mat2=mat;
-        imp(mat2);
-        System.out.println("aaaa");
-        for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; j < mat[0].length; j++) {
-                if(j<mat.length-1){
-                    if (mat[i][j]<mat[i][j+1]) {
-                        mat[i][j+1]=mat2[i][j];
-                        mat[i][j]=mat2[i][j+1];
-                    }
-                }
-        }
-        }
-        System.out.println("");
-        imp(mat2);
-        System.out.println("");
-        return mat;
+    return null;  
     }
-    public static int[][] organizar(int[][]mat){//organizar matriz
-        int[][]mat2=mat;
+    public static void mediano(int[][]mat, ArrayList<Integer>lista){//scar el medio
         for (int i = 0; i < mat.length; i++) {
+            int tam=0;
             for (int j = 0; j < mat[0].length; j++) {
-                if (mat[i][j]<mat[i][j+1]) {
-                    mat[i][j+1]=mat2[i][j];
-                    mat[i][j]=mat2[i][j+1];
-                    System.out.println(mat2[i][j]);
-                    System.out.println(mat2[i][j+1]);
-                    return mat;
-                }else{
-                    return mat;
-                }
+                tam+=mat[i][j];
             }
+            tam=tam/mat.length;
+            lista.add(tam);
         }
-    return mat;  
-    }//fin organizar
+    }//fin mediano
     public static int[][] llenar(int tam){//llena la matriz
         int[][] mat=new int[tam][tam];
         for (int i = 0; i < tam; i++) {
