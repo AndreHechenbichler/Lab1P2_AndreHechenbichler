@@ -76,7 +76,7 @@ static int[][] mat2=new int[0][0];
         int num=lista.size();
         int tot=total/num;
     return tot;
-    }
+    }//fina mediana de la mediana
     public static int[][]bubble(int[][]mat,int cont){
         for (int i = 0; i < mat.length; i++) {
             if (i==mat.length-1&&cont<mat.length-1) {
