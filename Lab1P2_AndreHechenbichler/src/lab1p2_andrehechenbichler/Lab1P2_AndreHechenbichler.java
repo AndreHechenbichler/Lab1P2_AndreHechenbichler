@@ -25,8 +25,10 @@ static Random rand=new Random();
         imp(mat);
         System.out.println("");
         System.out.println("Matriz Ordenada:");
-        //mat=prueba(mat);
-        //imp(mat);
+        int cont=0;
+        mat=bubble(mat,cont);
+        imp(mat);
+        
         System.out.println("calcular medianas");
         ArrayList<Integer>lista=new ArrayList();
         mediano(mat,lista);
@@ -35,9 +37,15 @@ static Random rand=new Random();
         }
         System.out.println("");
     }
-    public static int[][]bubble(int[][]mat){
-        
-    return null;  
+    public static int[][]bubble(int[][]mat,int cont){
+        for (int i = 0; i < mat.length; i++) {
+            if (i==3&&cont<mat.length-1) {
+                return bubble(mat, cont+1);
+            }else{
+                mat[cont][i]=3;
+            }
+        }
+    return mat;  
     }
     public static void mediano(int[][]mat, ArrayList<Integer>lista){//scar el medio
         for (int i = 0; i < mat.length; i++) {
