@@ -19,27 +19,34 @@ static Random rand=new Random();
         // TODO code application logic here
         System.out.println("Ingrese tamaño de la matriz deseada:");
         int tam=leer.nextInt();
-        int[][]mat=llenar(tam);
+        int[][]mat=llenar(tam);//llamar y imprimir matriz
         imp(mat);
         System.out.println("");
         System.out.println("Matriz Ordenada:");
-        
+        mat=organizar(mat);
+        imp(mat);
     }
-    public static int[]mediano(int[][]mat){
+    public static int[]mediano(int[][]mat){//scar el medio
         int[]medianos=new int[mat.length];
     return null;
         
-    }
-    /*public static int[][] organizar(int[][]mat){
-        if(mat.length == 0){
-            return mat[0];
-        }else{
-            
-        return mat[mat.length][mat.length]+organizar(mat);
-    }
+    }//fin mediano
+    public static int[][] organizar(int[][]mat){//organizar matriz
+        int[][]mat2=mat;
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[0].length; j++) {
+                if (mat[i][j]<mat[i][j+1]) {
+                    mat[i][j]=mat2[i][j+1];
+                    mat[i][j+1]=mat2[i][j];
+                    return mat;
+                }else{
+                    return mat;
+                }
+            }
+        }
     return mat;  
-    }*/
-    public static int[][] llenar(int tam){
+    }//fin organizar
+    public static int[][] llenar(int tam){//llena la matriz
         int[][] mat=new int[tam][tam];
         for (int i = 0; i < tam; i++) {
             for (int j = 0; j < tam; j++) {
@@ -47,8 +54,8 @@ static Random rand=new Random();
             }
         }
     return mat;
-    }
-    public static void imp(int[][] mat){
+    }//fin metodo
+    public static void imp(int[][] mat){//imprime la matriz
         
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat[0].length; j++) {
@@ -56,5 +63,5 @@ static Random rand=new Random();
             }
             System.out.println("");
         }
-    }
+    }//fin metodo
 }
