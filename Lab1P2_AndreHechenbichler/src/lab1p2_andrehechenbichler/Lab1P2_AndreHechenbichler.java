@@ -52,7 +52,7 @@ static int[][] mat2=new int[0][0];
         System.out.println("Mediana de las medianas");
         int media=medianamediana(lista);
         System.out.println(media);
-    }
+    }//fin main
     public static ArrayList<Integer> bubblelist(ArrayList<Integer> lista, int cont2) {
     if(cont2==lista.size()-1){
         return lista;
